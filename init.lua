@@ -35,6 +35,18 @@ vim.lsp.config["tinymist"] = {
 -- vim.lsp.enable('typst_lsp')
 vim.lsp.enable('tinymist')
 
+-- adding the lsp for markdown.
+
+vim.lsp.config["marksman"] = {
+    cmd = { "marksman", "server" },
+    filetypes = { "markdown", "markdown.dx" },
+    root_markers = { ".marksman.toml", ".git" },
+}
+
+vim.lsp.enable('marksman')
+
+
+
 vim.cmd([[
 
 set noshelltemp
