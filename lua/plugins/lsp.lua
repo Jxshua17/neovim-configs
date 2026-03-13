@@ -11,7 +11,28 @@ return{
 --	'hrsh7th/nvim-cmp',
   --  },
 
+    dependencies = { 'saghen/blink.cmp' },
+
+  -- example using `opts` for defining servers
+    opts = {
+	servers = {
+	lua_ls = {}
+	}
+    },
+
     automatic_enable = {
         "typst_lsp",
     },
+
+    config = function()
+
+--	local cfg = vim.lsp.config.blink
+	
+	local capabilities = require('blink.cmp').get_lsp_capabilities()
+	--local lspconfig = require('lspconfig')
+
+	vim.lsp.config('lua_ls', capabilities)
+	--lspconfig['lua_ls'].setup({ capabilities = capabilities })
+
+   end
 }
